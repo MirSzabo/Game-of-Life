@@ -5,11 +5,22 @@
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=yes">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link rel="stylesheet" type="text/css" href="main.css" />
+    <link
+    href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap"
+    rel="stylesheet"
+  />
     <title>tetris</title>
   </head>
   <body>
-    <canvas id="tetris" width="200" height="500"></canvas>
-    <div>Score:<div id="score">0</div> </div>
+    <header>
+      <h1>Tetris</h1>
+        <button class="btn" id="start_btn">Start Game!</button>
+        <button class="btn" id="re_btn">Restart Game!</button>
+        <p class="displayEnd"></p>
+      </div>
+    </header>
+    <canvas id="tetris" width="200" height="400"></canvas>
+    <div class="counter">Score:<div id="score">0</div> </div>
     <script src="tetrominoes.js"></script>
     <script src="tetris.js"></script>
   </body>

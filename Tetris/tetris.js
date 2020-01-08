@@ -9,6 +9,10 @@ const COL = 10;
 const SQ = (squareSize = 20);
 const emptySquareColor = "white";
 
+const startButton = document.getElementById("start_btn");
+const reloadButton = document.getElementById("re_btn");
+const gameEnd = document.querySelector(".displayEnd");
+
 //draw a square
 function drawSquare(x, y, color) {
   ctx.fillStyle = color;
@@ -60,6 +64,11 @@ function changeColorRandomly() {
 
 let score = 0;
 let gameOver = false;
+
+//btn.addEventListener("click", randomPiece);
+reloadButton.addEventListener("click", function() {
+  document.location.reload(true);
+});
 
 //the object Piece
 class Piece {
@@ -173,7 +182,8 @@ class Piece {
         }
         //piece to lock on top = game over
         if (this.y + i <= 0) {
-          alert("Game Over");
+         // alert("Game Over");
+         gameEnd.innerHTML = "Game Over"; 
           //stop request animation frame
           gameOver = true;
           break;
