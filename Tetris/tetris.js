@@ -4,8 +4,8 @@ const canvas = document.getElementById("tetris");
 const ctx = canvas.getContext("2d");
 const scoreElement = document.getElementById("score");
 
-const ROW = 30;
-const COL = 20;
+const ROW = 20;
+const COL = 10;
 const SQ = (squareSize = 20);
 const emptySquareColor = "white";
 
@@ -47,11 +47,14 @@ const pieces = [
 
 //utility function
 function changeColorRandomly() {
-    const x = Math.floor(Math.random() * 256);
-    const y = Math.floor(Math.random() * 256);
-    const z = Math.floor(Math.random() * 256);
   return (
-    "rgb(" + x + "," + y + "," + z + ")"
+    "hsl(" +
+    360 * Math.random() +
+    "," +
+    (25 + 80 * Math.random()) +
+    "%," +
+    (75 + 10 * Math.random()) +
+    "%)"
   );
 }
 
