@@ -13,6 +13,10 @@ const startButton = document.getElementById("start_btn");
 const reloadButton = document.getElementById("re_btn");
 const gameEnd = document.querySelector(".displayEnd");
 
+//confetti
+const confettiSettings = { target: 'my-canvas' };
+const confetti = new ConfettiGenerator(confettiSettings);
+//confetti.render();
 //draw a square
 function drawSquare(x, y, color) {
   ctx.fillStyle = color;
@@ -183,7 +187,7 @@ class Piece {
         //piece to lock on top = game over
         if (this.y + i <= 0) {
          // alert("Game Over");
-         gameEnd.innerHTML = "Game Over"; 
+         confetti.render();
           //stop request animation frame
           gameOver = true;
           break;
@@ -256,6 +260,9 @@ function drop() {
   }
   if (!gameOver) {
     requestAnimationFrame(drop);
+  } 
+  else {
+    requestAnimationFrame();
   }
 }
 drop();
