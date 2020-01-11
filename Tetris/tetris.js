@@ -12,11 +12,16 @@ const emptySquareColor = "white";
 const startButton = document.getElementById("start_btn");
 const reloadButton = document.getElementById("re_btn");
 const gameEnd = document.querySelector(".displayEnd");
+const previousScore = document.querySelector(".previousScore");
+
+let savedScore = 0;
+let score = 0;
+let gameOver = false;
 
 //confetti
-const confettiSettings = { target: 'my-canvas' };
+const confettiSettings = { target: "my-canvas" };
 const confetti = new ConfettiGenerator(confettiSettings);
-//confetti.render();
+
 //draw a square
 function drawSquare(x, y, color) {
   ctx.fillStyle = color;
@@ -66,10 +71,7 @@ function changeColorRandomly() {
   );
 }
 
-let score = 0;
-let gameOver = false;
-
-//btn.addEventListener("click", randomPiece);
+startButton.addEventListener("click", drop);
 reloadButton.addEventListener("click", function() {
   document.location.reload(true);
 });
@@ -107,7 +109,9 @@ class Piece {
     }
   }
   moveDown() {
-    if (!this.collision(0, 1, this.activeTetromino)) {
+    if (gameOver === true) {
+      this.lock();
+    } else if (!this.collision(0, 1, this.activeTetromino)) {
       this.unDraw();
       this.y++;
       this.draw();
@@ -186,10 +190,17 @@ class Piece {
         }
         //piece to lock on top = game over
         if (this.y + i <= 0) {
-         // alert("Game Over");
-         confetti.render();
+          // alert("Game Over");
           //stop request animation frame
           gameOver = true;
+          confetti.render();
+
+          if(score > savedScore) {
+            const arrayToStoreInLocalStorage = JSON.stringify(score);
+            localStorage.setItem("score", arrayToStoreInLocalStorage);
+            console.log("new score:" + score);
+          }
+          
           break;
         }
         //we lock the piece
@@ -258,11 +269,15 @@ function drop() {
     newPiece.moveDown();
     dropStart = Date.now();
   }
-  if (!gameOver) {
+  if (gameOver === false) {
     requestAnimationFrame(drop);
-  } 
-  else {
-    requestAnimationFrame();
   }
 }
-drop();
+//drop();
+
+//localStorage
+window.addEventListener("load", getSavedScore);
+function getSavedScore() {
+  savedScore = JSON.parse(localStorage.getItem("score"));
+  previousScore.innerHTML = "Your maximum score: " + savedScore;
+}

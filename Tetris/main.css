@@ -1,6 +1,6 @@
 body {
   text-align: center;
-  position: relative;
+  
   font-family: "Pacifico", cursive;
   background: #7f7fd5; /* fallback for old browsers */
   background: -webkit-linear-gradient(
@@ -36,6 +36,7 @@ h1 {
   display: inline-block;
   border: none;
   transition: all 0.4s ease 0s;
+  position: relative;
 }
 
 .btn:hover {
@@ -58,6 +59,10 @@ h1 {
 
 .counter {
     font-size: 20px;
+}
+
+.gameSpace {
+  position: relative;
 }
 
 #my-canvas {

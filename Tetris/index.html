@@ -12,7 +12,7 @@
       href="https://fonts.googleapis.com/css?family=Indie+Flower&display=swap"
       rel="stylesheet"
     />
-    <title>tetris</title>
+    <title>Tetris</title>
   </head>
   <body>
     <header>
@@ -20,14 +20,15 @@
       <button class="btn" id="start_btn">Start Game!</button>
       <button class="btn" id="re_btn">Restart Game!</button>
     </header>
-    <p class="displayEnd"></p>
-    <canvas id="my-canvas"></canvas>
-    <canvas id="tetris" width="200" height="400"></canvas>
-    <div class="counter">
-      Score:
-      <div id="score">0</div>
+    <div class="gameSpace">
+      <canvas id="my-canvas"></canvas>
+      <canvas id="tetris" width="200" height="400"></canvas>
+      <div class="counter">
+        Score:
+        <div id="score">0</div>
+      </div>
     </div>
-
+    <div class="previousScore"></div>
     <script src="node_modules/confetti-js/dist/index.min.js"></script>
     <script src="confetti.js"></script>
     <script src="tetrominoes.js"></script>
