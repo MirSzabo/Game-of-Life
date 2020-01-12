@@ -1,15 +1,17 @@
 {
-  "name": "Tetris",
+  "name": "tetris",
   "version": "1.0.0",
-  "description": "",
-  "main": "tetris.js",
+  "description": "game",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "confetti-js": "0.0.16"
+    "confetti-js": "0.0.16",
+    "express": "^4.17.1"
   }
 }

@@ -19,8 +19,8 @@ let score = 0;
 let gameOver = false;
 
 //confetti
-const confettiSettings = { target: "my-canvas" };
-const confetti = new ConfettiGenerator(confettiSettings);
+/*const confettiSettings = { target: "my-canvas" };
+const confetti = new ConfettiGenerator(confettiSettings);*/
 
 //draw a square
 function drawSquare(x, y, color) {
