@@ -1,23 +1,3 @@
-//Game of life
-/*rules
-1. Any live cell with fewer than two live neighbours dies, as if by underpopulation.
-2. Any live cell with two or three live neighbours lives on to the next generation.
-3. Any live cell with more than three live neighbours dies, as if by overpopulation.
-4. Any dead cell with exactly three live neighbours becomes a live cell, as if by reproduction.*/
-
-/* simplified as 
-1. 0--- exactly 3 alive neighbours ---->1 
-2. 1--- less than 2 alive or more than 3 alive ---->0
-*/
-
-/*pseudo code
-- create 2 dimensional array[x][y]
-- fill array with 1 and 0
-- draw the array
-- implement the rules of Game 
-- what to do with the edges
-*/
-
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
 console.log(ctx);
