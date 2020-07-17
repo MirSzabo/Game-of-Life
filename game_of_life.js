@@ -1,6 +1,6 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-console.log(ctx);
+//console.log(ctx);
 
 const resolution = 10;
 canvas.width = 1500;
@@ -11,24 +11,15 @@ const rows = canvas.height / resolution;
 
 let grid = [];
 
-/*//buttons
-const start = document.getElementById("startButton");
-const pause = document.getElementById("pauseButton");
-
-start.addEventListener("click", newGrid(grid)
-);
-pause.addEventListener("click", newGrid(grid)
-);*/
-
 requestAnimationFrame(update);
-function update() {
+const update = () => {
   grid = newGrid(grid);
   draw(grid);
   requestAnimationFrame(update);
-}
+};
 
 //create the 2D array
-function make2DArray(cols, rows) {
+const make2DArray = (cols, rows) => {
   let arr = [];
   for (let i = 0; i < cols; i++) {
     arr[i] = [];
@@ -37,13 +28,13 @@ function make2DArray(cols, rows) {
     }
   }
   return arr;
-}
+};
 
 grid = make2DArray(cols, rows);
-console.table(grid);
+//console.table(grid);
 
 //draw the 2D array
-function draw(grid) {
+const draw = (grid) => {
   for (let i = 0; i < grid.length; i++) {
     for (let j = 0; j < grid[i].length; j++) {
       const cell = grid[i][j];
@@ -57,11 +48,11 @@ function draw(grid) {
       //ctx.stroke();
     }
   }
-}
+};
 draw(grid);
 
 //implement the rules of Game
-function newGrid(grid) {
+const newGrid = (grid) => {
   //copy of the grid by value!!!
   let next = JSON.parse(JSON.stringify(grid));
   //console.log(grid === next);//false
@@ -84,7 +75,7 @@ function newGrid(grid) {
   return next;
 }
 
-function countNeighbours(grid, x, y) {
+const countNeighbours = (grid, x, y) => {
   let sum = 0;
   for (let i = -1; i < 2; i++) {
     for (let j = -1; j < 2; j++) {
@@ -97,10 +88,8 @@ function countNeighbours(grid, x, y) {
   return sum;
 }
 
-
-
 //utility function
-function changeColorRandomly() {
+const changeColorRandomly = () => {
   return (
     "hsl(" +
     360 * Math.random() +
