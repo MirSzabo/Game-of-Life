@@ -1,0 +1,27 @@
+{
+  "name": "Game-of-life",
+  "version": "1.0.0",
+  "description": "[Conways Game of Life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) is a cellular automaton devised by the British mathematician John Horton Conway.",
+  "main": "game_of_life.js",
+  "scripts": {
+    "test": "jest",
+    "start": "webpack-dev-server --config webpack.dev.js --mode development",
+    "build": "webpack --config webpack.prod.js --mode production",
+    "preview": "npm run build && http-server dist"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MirSzabo/Games.git"
+  },
+  "keywords": [],
+  "author": "Miroslava Szabo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MirSzabo/Games/issues"
+  },
+  "homepage": "https://github.com/MirSzabo/Games#readme",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0"
+  }
+}
