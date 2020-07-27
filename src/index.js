@@ -11,13 +11,25 @@ const rows = canvas.height / resolution;
 
 let grid = [];
 
-requestAnimationFrame(update);
-  const update = () => {
+//utility function
+const changeColorRandomly = () => {
+  return (
+    "hsl(" +
+    360 * Math.random() +
+    "," +
+    (25 + 80 * Math.random()) +
+    "%," +
+    (75 + 10 * Math.random()) +
+    "%)"
+  );
+};
+
+const update = () => {
   grid = newGrid(grid);
   draw(grid);
   requestAnimationFrame(update);
 };
-
+requestAnimationFrame(update);
 //create the 2D array
 const make2DArray = (cols, rows) => {
   let arr = [];
@@ -73,7 +85,7 @@ const newGrid = (grid) => {
     }
   }
   return next;
-}
+};
 
 const countNeighbours = (grid, x, y) => {
   let sum = 0;
@@ -86,17 +98,6 @@ const countNeighbours = (grid, x, y) => {
   }
   sum -= grid[x][y]; //we dont want to check this position
   return sum;
-}
+};
 
-//utility function
-const changeColorRandomly = () => {
-  return (
-    "hsl(" +
-    360 * Math.random() +
-    "," +
-    (25 + 80 * Math.random()) +
-    "%," +
-    (75 + 10 * Math.random()) +
-    "%)"
-  );
-}
+
